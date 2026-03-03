@@ -1,0 +1,166 @@
+You are a senior React engineer.
+
+Build a production-ready React web app called "Taskly".
+
+TECH STACK:
+- React (Vite)
+- Functional Components
+- React Hooks
+- Tailwind CSS
+- Firebase v9 Modular SDK
+- Firebase Cloud Messaging (FCM)
+- LocalStorage (for task storage)
+- Service Worker
+
+APP GOAL:
+Task reminder web application with push notification system using Firebase Cloud Messaging.
+
+--------------------------------------
+UI REQUIREMENTS
+--------------------------------------
+
+1) LAYOUT (Top Navbar Only)
+- No sidebar
+- Fully responsive
+- Clean SaaS UI
+- Mobile-first design
+
+Navbar:
+- Logo (Taskly)
+- Search bar
+- Add Task button
+- Notification icon
+- Dark mode toggle
+
+2) DASHBOARD
+- 4 responsive cards:
+    - Pending Today
+    - Completed
+    - Upcoming
+    - Overdue
+- Grid:
+    Desktop → 4 columns
+    Tablet → 2 columns
+    Mobile → 1 column
+
+3) TASK LIST
+Desktop:
+- Table layout
+
+Mobile:
+- Card layout
+
+Each task:
+- Title
+- Date & Time
+- Status badge
+- Complete button
+- Delete button
+
+4) ADD TASK MODAL
+Fields:
+- Title (required)
+- Description
+- Date
+- Time
+Validation:
+- Red border
+- Red error messages
+
+5) ALARM POPUP (IN-APP)
+- Full center modal
+- Dark overlay
+- Message:
+  "Hey! You need to complete this task."
+Buttons:
+- Stop
+- Snooze 10m
+- Snooze 30m
+- Snooze 45m
+- Snooze 1hr
+- Snooze 3hr
+- Mark Completed
+
+--------------------------------------
+FCM PUSH NOTIFICATION REQUIREMENTS
+--------------------------------------
+
+1) Integrate Firebase v9 Modular SDK
+2) Initialize Firebase
+3) Setup Firebase Cloud Messaging
+4) Create firebase-messaging-sw.js service worker
+5) Request notification permission on first load
+6) Generate and log FCM device token
+
+REMINDER BEHAVIOR:
+
+When task time matches:
+
+A) Show in-app center modal
+B) Send FCM push notification
+C) Notification must:
+    - Show title: "Task Reminder"
+    - Show task name
+    - Include icon
+    - Auto open app when clicked
+    - Focus browser tab
+
+If user is:
+- In different tab → show push notification
+- Browser minimized → show push notification
+- Tab closed but browser open → show push notification
+- Browser reopened → service worker handles it
+
+On clicking notification:
+- Redirect to homepage
+- Auto-open that task reminder modal
+
+--------------------------------------
+ALARM LOGIC
+--------------------------------------
+
+- Use setInterval (every 30 seconds)
+- Compare current date/time with tasks
+- Trigger reminder once
+- Prevent duplicate triggers
+
+--------------------------------------
+FILE STRUCTURE
+--------------------------------------
+
+/src
+   App.jsx
+   main.jsx
+   firebase.js
+   useTasks.js
+   useReminder.js
+
+/components
+   Navbar.jsx
+   DashboardCards.jsx
+   TaskList.jsx
+   TaskCardMobile.jsx
+   AddTaskModal.jsx
+   AlarmModal.jsx
+   StatusBadge.jsx
+
+/public
+   firebase-messaging-sw.js
+
+--------------------------------------
+DELIVERABLES
+--------------------------------------
+
+- Full working React code
+- Firebase setup code
+- Service worker file
+- Tailwind setup
+- Vite config
+- No pseudo code
+- No missing parts
+- Production-ready
+- Fully responsive
+- Clean modern UI
+
+IMPORTANT:
+App must work properly with Firebase Cloud Messaging for push notifications.

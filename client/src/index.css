@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,650,750&family=Spline+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   Taskly — Premium SaaS tone
+   ========================= */
+
+/* LIGHT MODE */
+:root {
+  --button-outline: rgba(0, 0, 0, 0.1);
+  --badge-outline: rgba(0, 0, 0, 0.05);
+
+  --opaque-button-border-intensity: -8;
+
+  --elevate-1: rgba(0, 0, 0, 0.03);
+  --elevate-2: rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  --font-display: "Fraunces", serif;
+  --font-sans: "Spline Sans", system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Core surfaces */
+  --background: 220 33% 98%;
+  --foreground: 224 44% 12%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 224 44% 12%;
+  --card-border: 220 18% 90%;
+
+  --border: 220 18% 88%;
+  --input: 220 18% 84%;
+  --ring: 214 90% 54%;
+
+  /* Sidebar tokens (not used in layout, but theme expects them) */
+  --sidebar: 220 24% 96%;
+  --sidebar-foreground: 224 44% 12%;
+  --sidebar-border: 220 16% 88%;
+  --sidebar-primary: 214 90% 54%;
+  --sidebar-primary-foreground: 210 40% 98%;
+  --sidebar-accent: 182 78% 40%;
+  --sidebar-accent-foreground: 210 40% 98%;
+  --sidebar-ring: 214 90% 54%;
+
+  /* Popover */
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 44% 12%;
+  --popover-border: 220 18% 88%;
+
+  /* Brand palette — electric blue + sea-glass accent */
+  --primary: 214 90% 54%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 220 22% 94%;
+  --secondary-foreground: 224 44% 12%;
+
+  --muted: 220 18% 95%;
+  --muted-foreground: 222 15% 44%;
+
+  --accent: 182 78% 40%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 82% 54%;
+  --destructive-foreground: 210 40% 98%;
+
+  /* Charts */
+  --chart-1: 214 90% 54%;
+  --chart-2: 182 78% 40%;
+  --chart-3: 262 78% 57%;
+  --chart-4: 24 92% 58%;
+  --chart-5: 333 81% 56%;
+
+  --radius: 0.75rem;
+
+  /* Shadows — subtle, premium */
+  --shadow-2xs: 0px 1px 0px 0px hsl(224 44% 12% / 0.02);
+  --shadow-xs: 0px 2px 0px 0px hsl(224 44% 12% / 0.03);
+  --shadow-sm: 0px 2px 0px 0px hsl(224 44% 12% / 0.04),
+    0px 8px 16px -12px hsl(224 44% 12% / 0.14);
+  --shadow: 0px 2px 0px 0px hsl(224 44% 12% / 0.05),
+    0px 16px 32px -20px hsl(224 44% 12% / 0.18);
+  --shadow-md: 0px 2px 0px 0px hsl(224 44% 12% / 0.06),
+    0px 24px 44px -28px hsl(224 44% 12% / 0.22);
+  --shadow-lg: 0px 2px 0px 0px hsl(224 44% 12% / 0.07),
+    0px 34px 68px -40px hsl(224 44% 12% / 0.24);
+  --shadow-xl: 0px 2px 0px 0px hsl(224 44% 12% / 0.08),
+    0px 44px 90px -48px hsl(224 44% 12% / 0.28);
+  --shadow-2xl: 0px 2px 0px 0px hsl(224 44% 12% / 0.08),
+    0px 64px 140px -70px hsl(224 44% 12% / 0.32);
+
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  /* Computed borders (template expects these CSS variables to exist) */
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s
+        calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s
+        calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s
+        calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s
+        calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s
+        calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s
+        calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s
+        calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+/* DARK MODE */
+.dark {
+  --button-outline: rgba(255, 255, 255, 0.1);
+  --badge-outline: rgba(255, 255, 255, 0.05);
+
+  --opaque-button-border-intensity: 9;
+
+  --elevate-1: rgba(255, 255, 255, 0.04);
+  --elevate-2: rgba(255, 255, 255, 0.09);
+
+  --background: 228 34% 8%;
+  --foreground: 210 40% 98%;
+
+  --card: 228 30% 10%;
+  --card-foreground: 210 40% 98%;
+  --card-border: 228 20% 18%;
+
+  --border: 228 20% 18%;
+  --input: 228 20% 24%;
+  --ring: 214 90% 60%;
+
+  --sidebar: 228 30% 10%;
+  --sidebar-foreground: 210 40% 98%;
+  --sidebar-border: 228 20% 18%;
+  --sidebar-primary: 214 90% 60%;
+  --sidebar-primary-foreground: 228 34% 8%;
+  --sidebar-accent: 182 78% 44%;
+  --sidebar-accent-foreground: 228 34% 8%;
+  --sidebar-ring: 214 90% 60%;
+
+  --popover: 228 30% 10%;
+  --popover-foreground: 210 40% 98%;
+  --popover-border: 228 20% 18%;
+
+  --primary: 214 90% 60%;
+  --primary-foreground: 228 34% 8%;
+
+  --secondary: 228 18% 16%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 228 18% 15%;
+  --muted-foreground: 219 14% 72%;
+
+  --accent: 182 78% 44%;
+  --accent-foreground: 228 34% 8%;
+
+  --destructive: 0 82% 58%;
+  --destructive-foreground: 228 34% 8%;
+
+  --chart-1: 214 90% 60%;
+  --chart-2: 182 78% 44%;
+  --chart-3: 262 78% 66%;
+  --chart-4: 24 92% 64%;
+  --chart-5: 333 81% 64%;
+
+  --shadow-2xs: 0px 1px 0px 0px hsl(210 40% 98% / 0.04);
+  --shadow-xs: 0px 2px 0px 0px hsl(210 40% 98% / 0.05);
+  --shadow-sm: 0px 2px 0px 0px hsl(210 40% 98% / 0.05),
+    0px 10px 20px -14px rgba(0, 0, 0, 0.55);
+  --shadow: 0px 2px 0px 0px hsl(210 40% 98% / 0.06),
+    0px 18px 40px -20px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0px 2px 0px 0px hsl(210 40% 98% / 0.06),
+    0px 24px 60px -26px rgba(0, 0, 0, 0.62);
+  --shadow-lg: 0px 2px 0px 0px hsl(210 40% 98% / 0.07),
+    0px 36px 90px -34px rgba(0, 0, 0, 0.65);
+  --shadow-xl: 0px 2px 0px 0px hsl(210 40% 98% / 0.07),
+    0px 52px 120px -44px rgba(0, 0, 0, 0.7);
+  --shadow-2xl: 0px 2px 0px 0px hsl(210 40% 98% / 0.07),
+    0px 72px 160px -62px rgba(0, 0, 0, 0.75);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+}
+
+/* Background texture + aurora */
+@layer utilities {
+  .bg-aurora {
+    background-image: radial-gradient(
+        1000px 600px at 10% -10%,
+        hsl(var(--primary) / 0.22),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 500px at 90% 10%,
+        hsl(var(--accent) / 0.18),
+        transparent 55%
+      ),
+      radial-gradient(
+        700px 500px at 50% 110%,
+        hsl(var(--chart-3) / 0.12),
+        transparent 55%
+      );
+  }
+
+  .grain {
+    position: relative;
+  }
+  .grain::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    border-radius: inherit;
+  }
+  .dark .grain::before {
+    opacity: 0.09;
+    mix-blend-mode: screen;
+  }
+
+  .shadow-premium {
+    box-shadow: var(--shadow);
+  }
+
+  .shadow-premium-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .ring-premium {
+    outline: none;
+    box-shadow: 0 0 0 4px hsl(var(--ring) / 0.18);
+  }
+
+  /* Hide ugly search cancel button in Chrome until we can style it properly */
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+
+  /* Placeholder styling for contentEditable div */
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  .no-default-hover-elevate {
+  }
+  .no-default-active-elevate {
+  }
+
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+
+  /* Does not work on elements with overflow:hidden! */
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: 999;
+  }
+
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+    inset: -1px;
+  }
+
+  @keyframes float-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+      filter: blur(0px);
+    }
+  }
+
+  .animate-float-in {
+    animation: float-in 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
