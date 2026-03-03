@@ -9,8 +9,8 @@ app.use(express.urlencoded({ extended: false }));
 
 await registerRoutes(app);
 
-// serve static files
-const distPath = path.resolve(process.cwd(), "dist");
+// Serve frontend
+const distPath = path.join(process.cwd(), "dist");
 
 app.use(express.static(distPath));
 
