@@ -1,12 +1,18 @@
 {
-  "functions": {
-    "dist/index.cjs": {
-      "runtime": "nodejs20.x"
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build"
+    },
+    {
+      "src": "dist/index.cjs",
+      "use": "@vercel/node"
     }
-  },
+  ],
   "routes": [
     { "src": "/api/(.*)", "dest": "dist/index.cjs" },
     { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/dist/index.html" }
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
