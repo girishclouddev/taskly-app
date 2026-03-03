@@ -1,7 +1,0 @@
-{
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/dist/index.cjs" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/dist/index.html" }
-  ]
-}
