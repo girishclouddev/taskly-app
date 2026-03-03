@@ -1,13 +1,9 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
 
-export async function registerRoutes(
-  httpServer: Server,
-  app: Express
-): Promise<Server> {
+export async function registerRoutes(app: Express): Promise<void> {
   app.get(api.tasks.list.path, async (req, res) => {
     const tasks = await storage.getTasks();
     res.json(tasks);
@@ -60,6 +56,4 @@ export async function registerRoutes(
     await storage.deleteTask(Number(req.params.id));
     res.status(204).end();
   });
-
-  return httpServer;
 }
