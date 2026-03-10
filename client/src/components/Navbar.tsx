@@ -143,8 +143,8 @@ export function Navbar(props: {
             </div>
           </div>
 
-          <div className="sm:hidden pb-3">
-            <div className="relative">
+          <div className="md:hidden flex flex-col gap-3 pb-3">
+            <div className="relative sm:hidden">
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 value={search}
@@ -154,6 +154,23 @@ export function Navbar(props: {
                 className="pl-10"
               />
             </div>
+            <nav className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none w-full px-1">
+              {navItems.map((it) => {
+                const active = location === it.href;
+                return (
+                  <Link
+                    key={it.href}
+                    href={it.href}
+                    className={cn(
+                      "whitespace-nowrap rounded-xl px-4 py-2 text-sm font-medium tracking-tight transition-all duration-200 hover-elevate active-elevate-2",
+                      active ? "toggle-elevate toggle-elevated" : "text-muted-foreground",
+                    )}
+                  >
+                    {it.label}
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
         </div>
       </div>
